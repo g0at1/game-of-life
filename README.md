@@ -1,6 +1,6 @@
-# game-of-life
+# Conway's Game of Life in Python
 
-### More about game of life
+### More about
 [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
 How to use:
