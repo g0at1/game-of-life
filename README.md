@@ -7,6 +7,7 @@ How to use:
 ```
 git clone https://github.com/g0at1/game-of-life.git
 cd game-of-life
+python3 main.py
 ```
 
 Install requirements:
