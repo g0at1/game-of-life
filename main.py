@@ -16,37 +16,41 @@ ALIVE = 1
 pygame.init()
 window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
-def countNeighbors(grid, row, col):
-    neighborIndex = [
+
+def count_neighbors(grid, row, col):
+    neighbor_index = [
         (row - 1, col - 1), (row - 1, col), (row - 1, col + 1),
         (row, col - 1),                     (row, col + 1),
         (row + 1, col - 1), (row + 1, col), (row + 1, col + 1)
     ]
-    count = np.sum([grid[n_row % HEIGHT, n_col % WIDTH] for n_row, n_col in neighborIndex])
+    count = np.sum([grid[n_row % HEIGHT, n_col % WIDTH] for n_row, n_col in neighbor_index])
     return count
 
-def updateGrid(grid):
-    newGrid = grid.copy()
+
+def update_grid(grid):
+    new_grid = grid.copy()
     for row in range(HEIGHT):
         for col in range(WIDTH):
-            neighbors = countNeighbors(grid, row, col)
+            neighbors = count_neighbors(grid, row, col)
             if grid[row, col] == ALIVE:
                 if neighbors < 2 or neighbors > 3:
-                    newGrid[row, col] = DEAD
+                    new_grid[row, col] = DEAD
             else:
                 if neighbors == 3:
-                    newGrid[row, col] = ALIVE
-    return newGrid
+                    new_grid[row, col] = ALIVE
+    return new_grid
 
-def displayGrid(grid):
+
+def display_grid(grid):
     window.fill(pygame.Color("black"))
     for row in range(HEIGHT):
         for col in range(WIDTH):
             cell = grid[row, col]
-            cellColor = pygame.Color("green") if cell == ALIVE else pygame.Color("black")
-            cellRect = pygame.Rect(col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE)
-            pygame.draw.rect(window, cellColor, cellRect)
+            cell_color = pygame.Color("green") if cell == ALIVE else pygame.Color("black")
+            cell_rect = pygame.Rect(col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE)
+            pygame.draw.rect(window, cell_color, cell_rect)
     pygame.display.update()
+
 
 running = True
 paused = False
@@ -59,9 +63,8 @@ while running:
                 paused = not paused
 
     if not paused:
-        grid = updateGrid(grid)
-        displayGrid(grid)
+        grid = update_grid(grid)
+        display_grid(grid)
         time.sleep(0.1)
 
 pygame.quit()
-
