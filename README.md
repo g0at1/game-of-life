@@ -16,6 +16,11 @@ Conway's Game of Life is a cellular automaton devised by mathematician John Hort
    ```bash
    pip install -r requirements.txt
    ```
+   OR on MacOS
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+   
 
 ## Usage
 1. Open a terminal or command prompt and navigate to the directory where the source code is located.
@@ -23,9 +28,13 @@ Conway's Game of Life is a cellular automaton devised by mathematician John Hort
    ```bash
    python main.py
    ```
-3. The Pygame window will open, displaying the grid and the evolution of cells.
-4. Press the "Space" key to pause or resume the simulation.
-5. Press the "Esc" key or close the window to exit the program.
+   OR on MacOS
+   ```bash
+   python3 main.py
+   ```
+4. The Pygame window will open, displaying the grid and the evolution of cells.
+5. Press the "Space" key to pause or resume the simulation.
+6. Press the "Esc" key or close the window to exit the program.
 
 ## Rules
 Conway's Game of Life follows these simple rules:
