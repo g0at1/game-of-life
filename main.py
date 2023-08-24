@@ -23,7 +23,8 @@ def count_neighbors(grid, row, col):
         (row, col - 1),                     (row, col + 1),
         (row + 1, col - 1), (row + 1, col), (row + 1, col + 1)
     ]
-    count = np.sum([grid[n_row % HEIGHT, n_col % WIDTH] for n_row, n_col in neighbor_index])
+    count = np.sum([grid[n_row % HEIGHT, n_col % WIDTH]
+                   for n_row, n_col in neighbor_index])
     return count
 
 
@@ -46,8 +47,10 @@ def display_grid(grid):
     for row in range(HEIGHT):
         for col in range(WIDTH):
             cell = grid[row, col]
-            cell_color = pygame.Color("green") if cell == ALIVE else pygame.Color("black")
-            cell_rect = pygame.Rect(col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE)
+            cell_color = pygame.Color(
+                "green") if cell == ALIVE else pygame.Color("black")
+            cell_rect = pygame.Rect(
+                col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE)
             pygame.draw.rect(window, cell_color, cell_rect)
     pygame.display.update()
 
