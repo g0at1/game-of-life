@@ -8,7 +8,7 @@ CELL_SIZE = 10
 WINDOW_WIDTH = WIDTH * CELL_SIZE
 WINDOW_HEIGHT = HEIGHT * CELL_SIZE
 
-grid = np.random.choice([0, 1], size=(HEIGHT, WIDTH), p=[0.8, 0.2])
+grid = np.random.choice([0, 1], size=(HEIGHT, WIDTH), p=[0.5, 0.5])
 
 DEAD = 0
 ALIVE = 1
